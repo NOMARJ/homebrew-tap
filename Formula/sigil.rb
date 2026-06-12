@@ -2,21 +2,21 @@ class Sigil < Formula
   desc "Automated security auditing for AI agent code"
   homepage "https://sigilsec.ai"
   license "Apache-2.0"
-  version "1.2.0"
+  version "1.2.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/NOMARJ/sigil/releases/download/v1.2.0/sigil-macos-arm64.tar.gz"
-      sha256 "c61bffeaeba1f793b6a784dc9de8b33fc8d61b77ce17182c4c198612b342fb3f"
+      url "https://github.com/NOMARJ/sigil/releases/download/v1.2.1/sigil-macos-arm64.tar.gz"
+      sha256 "c2f1639371d93ee6e98b10ec92a9514c414593638a1a0a65a8eb1cf8165a346b"
     else
-      url "https://github.com/NOMARJ/sigil/releases/download/v1.2.0/sigil-macos-x64.tar.gz"
-      sha256 "2c3327286f43a7f8bd1b36002869135087b5ca0e96374b00d2d2d77e47e55af6"
+      url "https://github.com/NOMARJ/sigil/releases/download/v1.2.1/sigil-macos-x64.tar.gz"
+      sha256 "e3637652901accdb25c0ca2abd4ce6f377afa8fde17952ef7c22e8d9b9f6d412"
     end
   end
 
   on_linux do
-    url "https://github.com/NOMARJ/sigil/releases/download/v1.2.0/sigil-linux-x64.tar.gz"
-    sha256 "95593b4ca9f7f409d36072ac07502ce1a0449a0ae025c7c8924334c8c07e3f66"
+    url "https://github.com/NOMARJ/sigil/releases/download/v1.2.1/sigil-linux-x64.tar.gz"
+    sha256 "8138dae629291579b16a3f406c69b3fbfc8aec64eb039f5ccae7414732acf74e"
   end
 
   def install
