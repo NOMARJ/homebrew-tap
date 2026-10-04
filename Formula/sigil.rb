@@ -15,20 +15,21 @@ class Sigil < Formula
   end
 
   on_linux do
-    url "https://github.com/NOMARJ/sigil/releases/download/v1.3.7/sigil-linux-x64.tar.gz"
-    sha256 "758d5079cd19cf8eb99f29987c78d388514e04dc9087f50baf429c870b272747"
+    if Hardware::CPU.arm?
+      url "https://github.com/NOMARJ/sigil/releases/download/v1.3.7/sigil-linux-arm64.tar.gz"
+      sha256 "8de1bde83d61e4eb5384dbda8a38c0e51f12b66eb034ea36f656826138409835"
+    else
+      url "https://github.com/NOMARJ/sigil/releases/download/v1.3.7/sigil-linux-x64.tar.gz"
+      sha256 "758d5079cd19cf8eb99f29987c78d388514e04dc9087f50baf429c870b272747"
+    end
   end
 
   def install
     bin.install "sigil"
   end
 
-  def post_install
-    system "#{bin}/sigil", "install" rescue nil
-  end
-
   test do
-    assert_match "SIGIL", shell_output("#{bin}/sigil --version")
+    assert_match version.to_s, shell_output("#{bin}/sigil --version")
     (testpath/"test.py").write("print('hello')")
     system "#{bin}/sigil", "scan", testpath/"test.py"
   end
